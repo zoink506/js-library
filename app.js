@@ -17,7 +17,46 @@ function displayLibrary(library) {
 
   for(let i = 0; i < library.length; i++) {
     const bookElement = document.createElement("div");
-    bookElement.innerText = library[i].title;
+    bookElement.classList.add("book");
+
+    bookElement.innerHTML = `
+      <div class="book-left">
+        <div class="title">${library[i].title}</div>
+        <div class="author">${library[i].author}</div>
+        <div class="pages">${library[i].pages} pages</div>
+      </div>
+      <div class="book-right">
+        <div>
+          <div class="inline">read?</div>
+          <input type="checkbox" class="inline">
+        </div>
+        <button>Remove Book</button>
+      </div>
+    `;
+
+    /*
+    const pagesElement = document.createElement("div");
+    pagesElement.innerText = `${library[i].pages} pages`;
+
+    const titleAuthor = document.createElement("div");
+    titleAuthor.innerText = `${library[i].title} - ${library[i].author}`;
+
+    const removeBookButton = document.createElement("button");
+    removeBookButton.innerText = "Remove Book";
+
+    const readCheckboxLabel = document.createElement("label");
+    readCheckboxLabel.for = "checkbox";
+    console.log(readCheckboxLabel);
+
+    const readCheckbox = document.createElement("input");
+    readCheckbox.type = "checkbox";
+    console.log(readCheckbox);
+
+    bookElement.append(pagesElement);
+    bookElement.append(titleAuthor);
+    bookElement.append(removeBookButton);
+    bookElement.append(readCheckbox);
+    */
     libraryContainer.append(bookElement);
   }
 }
