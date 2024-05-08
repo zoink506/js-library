@@ -28,7 +28,7 @@ function displayLibrary(library) {
       <div class="book-right">
         <div>
           <div class="inline">read?</div>
-          <input type="checkbox" class="inline">
+          <input type="checkbox" class="inline" ${library[i].read === true ? "checked" : ""}>
         </div>
         <button>Remove Book</button>
       </div>
