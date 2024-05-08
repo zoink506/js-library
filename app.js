@@ -65,6 +65,9 @@ function removeBookFromLibrary(event, bookIndex, library) {
   console.log(event);
   console.log(bookIndex);
   console.log(library);
+
+  library.splice(bookIndex, 1);
+  displayLibrary(library);
 }
 
 function getNewBookForm(event) {
