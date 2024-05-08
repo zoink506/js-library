@@ -45,17 +45,26 @@ function displayLibrary(library) {
     const removeBookButton = document.querySelector(`[data-book="${i}"] button.remove-book`);
     console.log(removeBookButton);
 
-    readCheckbox.addEventListener("change", changeBookReadStatus, false)
-    removeBookButton.addEventListener("click", removeBookFromLibrary, false);
+    readCheckbox.addEventListener("change", (e) => { changeBookReadStatus(e, i, library) }, false)
+    removeBookButton.addEventListener("click", (e) => { removeBookFromLibrary(e, i, library) }, false);
   }
 }
 
-function changeBookReadStatus(event) {
+function changeBookReadStatus(event, bookIndex, library) {
+  console.log(bookIndex);
+  console.log(library);
   console.log(event);
+
+  console.log(event.target.checked);
+
+  library[bookIndex].read = event.target.checked;
+  console.log(library[bookIndex]);
 }
 
-function removeBookFromLibrary(event) {
+function removeBookFromLibrary(event, bookIndex, library) {
   console.log(event);
+  console.log(bookIndex);
+  console.log(library);
 }
 
 function getNewBookForm(event) {
