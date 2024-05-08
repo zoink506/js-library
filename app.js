@@ -18,6 +18,7 @@ function displayLibrary(library) {
   for(let i = 0; i < library.length; i++) {
     const bookElement = document.createElement("div");
     bookElement.classList.add("book");
+    bookElement.dataset.book = i;
 
     bookElement.innerHTML = `
       <div class="book-left">
@@ -28,37 +29,33 @@ function displayLibrary(library) {
       <div class="book-right">
         <div>
           <div class="inline">read?</div>
-          <input type="checkbox" class="inline" ${library[i].read === true ? "checked" : ""}>
+          <input type="checkbox" class="read-checkbox" ${library[i].read === true ? "checked" : ""}>
         </div>
-        <button>Remove Book</button>
+        <button class="remove-book">Remove Book</button>
       </div>
     `;
 
-    /*
-    const pagesElement = document.createElement("div");
-    pagesElement.innerText = `${library[i].pages} pages`;
-
-    const titleAuthor = document.createElement("div");
-    titleAuthor.innerText = `${library[i].title} - ${library[i].author}`;
-
-    const removeBookButton = document.createElement("button");
-    removeBookButton.innerText = "Remove Book";
-
-    const readCheckboxLabel = document.createElement("label");
-    readCheckboxLabel.for = "checkbox";
-    console.log(readCheckboxLabel);
-
-    const readCheckbox = document.createElement("input");
-    readCheckbox.type = "checkbox";
-    console.log(readCheckbox);
-
-    bookElement.append(pagesElement);
-    bookElement.append(titleAuthor);
-    bookElement.append(removeBookButton);
-    bookElement.append(readCheckbox);
-    */
     libraryContainer.append(bookElement);
+
+    // Add event listener to read checkbox AND remove button
+    const book = document.querySelector(`[data-book="${i}"]`);
+    console.log(book);
+    const readCheckbox = document.querySelector(`[data-book="${i}"] input[type='checkbox']`);
+    console.log(readCheckbox);
+    const removeBookButton = document.querySelector(`[data-book="${i}"] button.remove-book`);
+    console.log(removeBookButton);
+
+    readCheckbox.addEventListener("change", changeBookReadStatus, false)
+    removeBookButton.addEventListener("click", removeBookFromLibrary, false);
   }
+}
+
+function changeBookReadStatus(event) {
+  console.log(event);
+}
+
+function removeBookFromLibrary(event) {
+  console.log(event);
 }
 
 function getNewBookForm(event) {
