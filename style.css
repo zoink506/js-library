@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   color: white;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,7 +15,8 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(107, 107, 107);
+  background-color: rgb(78, 78, 78);
+  padding: 1rem;
 }
 
 .book {
@@ -42,6 +44,7 @@ h1 {
 #new-book-form {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .title {
@@ -57,6 +60,60 @@ h1 {
 
 }
 
-input {
+input[type='text'], input[type='number'], select, option {
   color: black;
+  padding: 8px;
+  border: none;
+}
+
+input[type='text']:focus, input[type='number']:focus, select:focus, option:focus {
+  outline: 3px solid rgb(120, 87, 211);
+}
+
+.error-msg {
+  background-color: rgb(255, 71, 71);
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.button {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+}
+
+#new-book-section {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 8px;
+}
+
+.blue-button {
+  background-color: rgb(120, 87, 211);
+}
+
+.blue-button:hover {
+  background-color: rgb(98, 70, 175);
+}
+
+.blue-button:focus {
+  background-color: rgb(79, 56, 143);
+}
+
+.orange-button {
+  background-color: rgb(192, 145, 83);
+}
+
+.orange-button:hover {
+  background-color: rgb(175, 134, 80);
+}
+
+.orange-button:focus {
+  background-color: rgb(161, 123, 73);
+}
+
+.inline {
+  display: inline;
 }

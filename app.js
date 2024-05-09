@@ -28,10 +28,10 @@ function displayLibrary(library) {
       </div>
       <div class="book-right">
         <div>
-          <div class="inline">read?</div>
+          <div class="inline">Read?</div>
           <input type="checkbox" class="read-checkbox" ${library[i].read === true ? "checked" : ""}>
         </div>
-        <button class="remove-book">Remove Book</button>
+        <button class="remove-book button blue-button">Remove Book</button>
       </div>
     `;
 
@@ -90,7 +90,7 @@ function getNewBookForm(event) {
         <option value="no">No</option>
       </select>
 
-      <input type="submit">
+      <input type="submit" class="button blue-button">
     </form>
   `;
 
@@ -134,8 +134,16 @@ function convertFormToBook(form) {
   const newBookButton = document.createElement("button");
   newBookButton.id = "new-book-button";
   newBookButton.innerText = "New Book";
+  newBookButton.classList.add("button", "blue-button");
   newBookSection.innerHTML = "";
   newBookSection.append(newBookButton);
+  if(valid === false) {
+    // book submission was invalid, place error in new book section
+    const errorMsg = document.createElement("div");
+    errorMsg.classList.add("error-msg");
+    errorMsg.innerText = "Book details are not valid";
+    newBookSection.append(errorMsg);
+  }
 
   console.log(newBookButton);
   newBookButton.addEventListener("click", getNewBookForm);
