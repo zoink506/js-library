@@ -29,8 +29,10 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
 }
 
 #library {
@@ -116,4 +118,8 @@ input[type='text']:focus, input[type='number']:focus, select:focus, option:focus
 
 .inline {
   display: inline;
+}
+
+#submit-new-book-form {
+  margin-top: 8px;
 }

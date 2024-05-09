@@ -90,7 +90,7 @@ function getNewBookForm(event) {
         <option value="no">No</option>
       </select>
 
-      <input type="submit" class="button blue-button">
+      <input type="submit" class="button blue-button" id="submit-new-book-form">
     </form>
   `;
 
